@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import PredictionStats from "@/components/PredictionStats";
 import { Trophy, Users, Target, TrendingUp, Clock, MapPin } from "lucide-react";
 
 const BRAZILIAN_TEAMS = [
@@ -102,6 +103,13 @@ export default function PredictPage() {
               Selecione os times para gerar a predição do resultado
             </CardDescription>
           </CardHeader>
+
+      <PredictionStats 
+      homeTeam={homeTeam}
+      awayTeam={awayTeam}
+      predictionResult={result ?? undefined}
+      confidence={confidence ?? undefined}
+    />
           
           <CardContent className="p-8">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -210,6 +218,8 @@ export default function PredictPage() {
               </div>
             </CardContent>
           </Card>
+
+		  
         )}
 
         {/* Footer */}
